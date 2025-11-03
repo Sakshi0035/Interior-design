@@ -16,7 +16,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="w-full h-screen max-w-sm mx-auto flex flex-col font-sans transition-colors duration-300 bg-gray-50 text-gray-800">
+    <div className="w-full h-screen max-w-sm mx-auto flex flex-col font-sans transition-colors duration-300 bg-gray-50 text-gray-800 overflow-hidden">
       {!session ? <AuthScreen /> : <MainApp />}
     </div>
   );

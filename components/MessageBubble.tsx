@@ -12,7 +12,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
     : 'bg-gray-200 text-gray-800 self-start rounded-tr-xl rounded-tl-xl rounded-br-xl';
 
   return (
-    <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'}`}>
+    <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'} animate-fade-in-up`}>
       <div className={`max-w-xs md:max-w-md shadow-sm ${bubbleClasses} ${!message.images?.length && !message.text ? 'p-0' : 'px-4 py-3'}`}>
         {message.images && message.images.length > 0 && (
           <div className={`grid gap-2 ${message.images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} ${message.text ? 'mb-2' : ''}`}>

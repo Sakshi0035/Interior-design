@@ -1,8 +1,16 @@
-
 import React, { useState, useRef, FormEvent } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../services/supabaseClient';
 import Spinner from './Spinner';
+
+const HalloweenAnimation = () => (
+    <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <i className="fa-solid fa-ghost text-gray-200/50 absolute text-5xl animate-ghost-drift-1" style={{ animationDelay: '0s' }}></i>
+        <i className="fa-solid fa-ghost text-gray-200/40 absolute text-3xl animate-ghost-drift-2" style={{ animationDelay: '5s' }}></i>
+        <i className="fa-solid fa-ghost text-gray-200/60 absolute text-4xl animate-ghost-drift-3" style={{ animationDelay: '10s' }}></i>
+        <i className="fa-solid fa-ghost text-gray-200/30 absolute text-2xl animate-ghost-drift-2" style={{ animationDelay: '12s', animationDirection: 'reverse' }}></i>
+    </div>
+);
 
 const AuthScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'signin' | 'signup'>('signin');
@@ -62,12 +70,13 @@ const AuthScreen: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen w-full flex flex-col justify-center items-center bg-gray-50 p-4">
-      <div className="w-full max-w-sm mx-auto">
+    <div className="min-h-screen w-full flex flex-col justify-center items-center bg-gray-50 p-4 relative">
+      <HalloweenAnimation />
+      <div className="w-full max-w-sm mx-auto animate-fade-in-up z-10">
         <div className="text-center mb-6">
           <MagicFeelLogo />
-          <h1 className="text-2xl font-bold text-slate-800">MAGICFEEL STUDIO LLP</h1>
-          <p className="text-sm text-gray-500">PREMIUM INTERIOR & LANDSCAPE DESIGN</p>
+          <h1 className="text-xl font-bold text-slate-800 tracking-wider uppercase">Magicfeel Studio LLP</h1>
+          <p className="text-xs text-gray-500 tracking-widest uppercase mt-1">Live Beautiful</p>
         </div>
         
         <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100">

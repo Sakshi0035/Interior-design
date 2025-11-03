@@ -5,4 +5,4 @@ export interface Message {
   images?: string[];
 }
 
-export type Screen = 'chat' | 'dashboard' | 'settings';
+export type Screen = 'dashboard' | 'settings';

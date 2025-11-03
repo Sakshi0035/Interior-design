@@ -22,7 +22,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ onNavigateBack, chatSession, me
           <i className="fa-solid fa-arrow-left text-lg"></i>
         </button>
         <div className="text-center">
-          <h1 className="font-semibold text-lg text-slate-800">MagicFeel AI</h1>
+          <h1 className="font-semibold text-lg text-slate-800">MagicFeels AI</h1>
           <p className="text-xs text-green-500">Online</p>
         </div>
         <div className="w-8"></div>

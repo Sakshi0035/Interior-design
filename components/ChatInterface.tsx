@@ -1,4 +1,7 @@
 
+
+
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { type Chat, type Part } from "@google/genai";
 import { type Message } from '../types';
@@ -191,11 +194,12 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ chatSession, messages, se
       {!isLoading && messages.length <= 1 && (
         <div className="px-4 pb-2">
             <div className="flex overflow-x-auto space-x-2 py-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              {suggestionPrompts.map((prompt) => (
+              {suggestionPrompts.map((prompt, index) => (
                 <button
                   key={prompt}
                   onClick={() => handleSuggestionClick(prompt)}
-                  className="flex-shrink-0 px-3 py-1.5 text-sm bg-white border border-gray-200 text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
+                  className="flex-shrink-0 px-3 py-1.5 text-sm bg-white border border-gray-200 text-gray-600 rounded-full hover:bg-gray-100 transition-colors animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms`}}
                 >
                   {prompt}
                 </button>
@@ -234,9 +238,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ chatSession, messages, se
             type="button"
             onClick={() => fileInputRef.current?.click()}
             disabled={isLoading}
-            className="w-12 h-12 rounded-full border-2 border-gray-200 bg-gray-50 text-gray-500 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transform hover:bg-gray-100 transition-colors"
+            className="w-12 h-12 rounded-full border-2 border-gray-200 bg-gray-50 text-gray-500 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors group"
           >
-            <i className="fa-solid fa-paperclip"></i>
+            <i className="fa-solid fa-paperclip transition-transform group-hover:rotate-12"></i>
           </button>
           <input
             type="text"
@@ -249,9 +253,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ chatSession, messages, se
           <button
             type="submit"
             disabled={(!inputValue.trim() && selectedFiles.length === 0) || isLoading}
-            className="w-12 h-12 rounded-full bg-yellow-500 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-110 transition-transform"
+            className="w-12 h-12 rounded-full bg-yellow-500 text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-110 transition-transform group"
           >
-            <i className="fa-solid fa-paper-plane"></i>
+            <i className="fa-solid fa-paper-plane transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
           </button>
         </form>
       </footer>
